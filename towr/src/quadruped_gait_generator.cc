@@ -82,6 +82,7 @@ QuadrupedGaitGenerator::SetCombo (Combos combo)
     case C2: SetGaits({Stand, Run3, Run3, Run3, Run3E, Stand}); break; // pace
     case C3: SetGaits({Stand, Hop1, Hop1, Hop1, Hop1E, Stand}); break; // bound
     case C4: SetGaits({Stand, Hop3, Hop3, Hop3, Hop3E, Stand}); break; // gallop
+    case C5: SetGaits({Stand, Run1, Run1, Run1, Run1E, Stand}); break; // trot
     default: assert(false); std::cout << "Gait not defined\n"; break;
   }
 }
@@ -96,6 +97,7 @@ QuadrupedGaitGenerator::GetGait(Gaits gait) const
     case Walk2:   return GetStrideWalkOverlap();
     case Walk2E:  return RemoveTransition(GetStrideWalkOverlap());
     case Run1:    return GetStrideTrot();
+    case Run1E:   return RemoveTransition(GetStrideTrot());
     case Run2:    return GetStrideTrotFly();
     case Run2E:   return GetStrideTrotFlyEnd();
     case Run3:    return GetStridePace();
